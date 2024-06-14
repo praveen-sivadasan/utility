@@ -62,7 +62,7 @@ CREATEBOOKING=$(curl 'https://spruce.activebuilding.com/portal/reservations/crea
   -H 'sec-ch-ua-platform: "macOS"' \
   -H 'traceparent: 00-ba1c674e5a561f38fc9f823f932013f0-342ff1ee843fc58e-01' \
   -H 'tracestate: 1127693@nr=0-1-334362-601336752-342ff1ee843fc58e----1718247846645' \
-  --data-raw "$FORM_DATA_COURT1")
+  --data-raw "$FORM_DATA_COURT4")
 
 echo "Create booking response from the server:"
 echo "$CREATEBOOKING"
