@@ -2,7 +2,8 @@ name: Book Court Script
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
+    - cron: '0/1 * * * *'
+    #- cron: '1 0 * * *'  # Runs at 00:01 UTC every day
 
 jobs:
   run-script:
