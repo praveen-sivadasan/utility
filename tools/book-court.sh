@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Spruce Tennis Court Reservation"
-
+echo "Current time: $(date)"
 
 # LOGIN=$(curl 'https://spruce.activebuilding.com/login' \
 #   -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
@@ -29,8 +29,8 @@ echo "Spruce Tennis Court Reservation"
 echo "Login response from the server:"
 # echo "$LOGIN"
 
-current_date=$(date +"%m/%d/%Y")
-formatted_date=$(echo "$current_date" | sed 's/\//%2F/g')
+date_plus_5=$(date -d "+5 days" +"%m/%d/%Y")
+formatted_date=$(echo "$date_plus_5" | sed 's/\//%2F/g')
 
 echo "Date: $formatted_date"
 
