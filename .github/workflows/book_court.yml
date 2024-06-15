@@ -2,8 +2,8 @@ name: Book Court Script
 
 on:
   schedule:
-    - cron: '20 7 * * *'  # Runs at 07:20 AM UTC every day/ PST post 12AM
-    #- cron: '0 * * * *' # every minute for debugging
+    #- cron: '0 7 * * *'  # Runs at 07:00 AM UTC every day/ PST post 12AM
+    - cron: '0/1 * * * *' # At every minute from 0 through 59 for debugging
 
 jobs:
   run-script:
@@ -12,6 +12,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Check if jq is installed
+        run: |
+          if ! command -v jq &> /dev/null; then
+            echo "jq is not installed, installing..."
+            sudo apt-get update
+            sudo apt-get install jq
+          else
+            echo "jq is already installed"
+          fi
 
       - name: Set execute permission
         run: chmod +x tools/book-court.sh
