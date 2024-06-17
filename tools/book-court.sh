@@ -80,7 +80,7 @@ execute_curl() {
   # is reponse has success false
   if ! command -v jq >/dev/null || ! jq -e '.success' <<< "$response" >/dev/null || \
     [ "$(jq -r '.success' <<< "$response")" == "false" ]; then
-    return 0
+    return 1
   fi
 
   # If none of the above conditions matched, consider it successful
