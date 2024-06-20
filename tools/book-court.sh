@@ -54,6 +54,10 @@ execute_curl() {
   local key=$1
   local value=$2
 
+  echo
+  echo "Current time: $(date)"
+  echo
+
   local curl_command="curl 'https://spruce.activebuilding.com/portal/reservations/create' \
   -H 'Accept: application/json, text/plain , */*' \
   -H 'Cookie: PHPSESSID=$phpsessid;' \
