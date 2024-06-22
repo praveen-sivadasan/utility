@@ -24,7 +24,7 @@ jobs:
           fi
 
       - name: Set execute permission
-        run: chmod +x tools/book-court.sh
+        run: chmod +x tools/book-court-workflow-script.sh
       
       - name: Run shell script
-        run: ./tools/book-court.sh
+        run: ./tools/book-court-workflow-script.sh
