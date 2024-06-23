@@ -27,7 +27,7 @@ echo "First PHPSESSID: $phpsessid" | tee -a "$output_file"
 
 echo | tee -a "$output_file"
 
-date_plus_5=$(date -d "+6 days" +"%m/%d/%Y")
+date_plus_5=$(date -d "+5 days" +"%m/%d/%Y")
 formatted_date=$(echo "$date_plus_5" | sed 's/\//%2F/g')
 
 echo "Date: $formatted_date" | tee -a "$output_file"
@@ -49,8 +49,8 @@ echo | tee -a "$output_file"
 ## Method 2
 
 declare -A court_id_pairs
-courts=("court4" "court1" "court2" "court3")
-court_ids=("22026" "17376" "22024" "22025")
+courts=("court4" "court1" "court3" "court2")
+court_ids=("22026" "17376" "22025" "22024")
 
 execute_curl() {
   local key=$1
@@ -64,8 +64,7 @@ execute_curl() {
   -H 'Accept: application/json, text/plain , */*' \
   -H 'Cookie: PHPSESSID=$phpsessid;' \
   -H 'Origin: https://spruce.activebuilding.com' \
-  --data-raw 'amenityId=$value&startDate=$formatted_date&startTime=18%3A30&durationHours=1%3A00&approve-regulations=on&amenityYesnoQuestions%5B118996%5D=YES&amenityYesnoQuestions%5B118997%5D=YES' \
-  >> "$output_file""
+  --data-raw 'amenityId=$value&startDate=$formatted_date&startTime=18%3A30&durationHours=1%3A00&approve-regulations=on&amenityYesnoQuestions%5B118996%5D=YES&amenityYesnoQuestions%5B118997%5D=YES'"
   
   # Print the curl command (for debugging purposes)
   echo "Running command: $curl_command" | tee -a "$output_file"
